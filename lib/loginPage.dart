@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:plantapp/verificationPage.dart';
+
+void main() => runApp(const loginPage());
 
 class loginPage extends StatefulWidget {
   const loginPage({super.key});
@@ -13,6 +16,11 @@ class loginPage extends StatefulWidget {
 }
 
 class _loginPageState extends State<loginPage> {
+  void verificationPage() {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const VerificationPage()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -116,6 +124,7 @@ class _loginPageState extends State<loginPage> {
                                 Color.fromRGBO(62, 102, 24, 1),
                               ])),
                       child: GestureDetector(
+                        onTap: verificationPage,
                         child: Center(
                           child: Text(
                             "Log in",
