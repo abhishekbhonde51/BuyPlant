@@ -16,7 +16,8 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^3.0.0
   google_fonts: ^6.2.1
-
+  carousel_slider: ^4.0.0
+  plant_icons: ^0.0.3
 flutter:
   uses-material-design: true
   assets:
