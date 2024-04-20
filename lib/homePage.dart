@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:plantapp/plant_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -75,68 +76,75 @@ class _HomePageState extends State<HomePage> {
   List<Widget> anotherScrollView() {
     return List.generate(
       5,
-      (index) => Container(
-        margin: const EdgeInsets.only(left: 18),
-        height: 198,
-        width: 151,
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-                offset: Offset(10, 10),
-                blurRadius: 40.8,
-                color: Color.fromRGBO(0, 0, 0, 0.06))
-          ],
-        ),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-          Container(
-            width: 110,
-            height: 132,
-            decoration: BoxDecoration(boxShadow: const []),
-            child: Image.asset(
-              'assests/plantScroll.png',
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(right: 20),
-            child: Text(
-              "Snake Plants",
-              style: GoogleFonts.dmSans(
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-                color: const Color.fromRGBO(48, 48, 48, 1),
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 13,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                "₹320",
-                style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                    color: const Color.fromRGBO(62, 102, 24, 1)),
-              ),
-              Container(
-                height: 26,
-                width: 26,
-                decoration: BoxDecoration(
-                  color: const Color.fromRGBO(237, 238, 235, 1),
-                  borderRadius: BorderRadius.circular(100),
-                ),
-                child: const Icon(
-                  Icons.shop,
-                  size: 17.64,
-                  color: Color.fromRGBO(0, 0, 0, 1),
-                ),
-              )
+      (index) => GestureDetector(
+        onTap: () => {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => PlantScreen()))
+        },
+        child: Container(
+          margin: const EdgeInsets.only(left: 18),
+          height: 198,
+          width: 151,
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                  offset: Offset(10, 10),
+                  blurRadius: 40.8,
+                  color: Color.fromRGBO(0, 0, 0, 0.06))
             ],
-          )
-        ]),
+          ),
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+            Container(
+              width: 110,
+              height: 132,
+              decoration: const BoxDecoration(boxShadow: const []),
+              child: Image.asset(
+                'assests/plantScroll.png',
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(right: 20),
+              child: Text(
+                "Snake Plants",
+                style: GoogleFonts.dmSans(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: const Color.fromRGBO(48, 48, 48, 1),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 13,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  "₹320",
+                  style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                      color: const Color.fromRGBO(62, 102, 24, 1)),
+                ),
+                Container(
+                  height: 26,
+                  width: 26,
+                  decoration: BoxDecoration(
+                    color: const Color.fromRGBO(237, 238, 235, 1),
+                    borderRadius: BorderRadius.circular(100),
+                  ),
+                  child: const Icon(
+                    Icons.shop,
+                    size: 17.64,
+                    color: Color.fromRGBO(0, 0, 0, 1),
+                  ),
+                )
+              ],
+            )
+          ]),
+        ),
       ),
     );
   }
